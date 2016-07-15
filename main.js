@@ -20,6 +20,7 @@ var mainState = {
 
         spaceKey.onDown.add(this.jump, this);
         this.pipes = game.add.group();
+        this.timer = game.time.events.loop(1500, this.addRowOfPipes, this); 
   },
 
     update: function() {
@@ -67,7 +68,7 @@ addOnePipe: function(x, y) {
      for (var i = 0; i < 8; i++)
          if (i != hole && i != hole + 1)
              this.addOnePipe(400, i * 60 + 10);
- }, 
+ },
 };
 
 // Initialize Phaser, and create a 400px by 490px game
